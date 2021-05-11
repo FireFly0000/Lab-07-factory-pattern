@@ -19,11 +19,11 @@ int main() {
     // does not constitute a completed lab. Make sure you write unit tests for
     // all the classes that you create (and can be instantiated) in this lab
 
-    Factory test;   
-    const char *args[] = { "3", "+", "7"};
-    Base* op = test.parse(args, 3);
+    Factory test;
+    const char* args[] = { "3", "+", "7", "+", "10","+","20","+","40"};
+    Base* op = test.parse(args, 9);
 
-    for (int i = 0; i < 3; ++i) {
+    for (int i = 0; i < 9; ++i) {
         cout << args[i];
     }
     cout << " = " << op->evaluate() << endl;
@@ -40,4 +40,3 @@ int main() {
     std::cout << minus->stringify() << " = " << minus->evaluate() << std::endl;*/
     return 0;
 }
-
