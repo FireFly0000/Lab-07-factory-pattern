@@ -41,6 +41,14 @@ public:
 				root = new Sub(lop, new Op(std::stod(input[++i])));
 				rop = root;
 			}
+			else if (input[i] == "/") {
+				root = new Div(lop, new Op(std::stod(input[++i])));
+				rop = root;
+			}
+			else if (input[i] == "*") {
+				root = new Mult(lop, new Op(std::stod(input[++i])));
+				rop = root;
+			}
 			else {
 				std::cout << "ERROR, INVALID INPUTS" << std::endl;
 				return nullptr;
