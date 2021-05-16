@@ -27,7 +27,7 @@ public:
 		while (i < length) {
 			//if (std::isdigit(std::stoi(input[i])) == 0) {
 			if (input[i] == "0" || input[i] == "1" || input[i] == "2" || input[i] == "3" || input[i] == "4" || input[i] == "5" ||
-					input[i] == "6" || input[i] == "7" || input[i] == "8" || input[i] == "9") {
+				input[i] == "6" || input[i] == "7" || input[i] == "8" || input[i] == "9") {
 				lop = new Op(std::stod(input[i++]));
 			}
 			else {
@@ -35,6 +35,10 @@ public:
 			}
 			if (input[i] == "+") {
 				root = new Add(lop, new Op(std::stod(input[++i])));
+				rop = root;
+			}
+			else if (input[i] == "-") {
+				root = new Sub(lop, new Op(std::stod(input[++i])));
 				rop = root;
 			}
 			else {
