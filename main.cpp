@@ -20,10 +20,10 @@ int main() {
     // all the classes that you create (and can be instantiated) in this lab
 
     Factory test;
-    const char* args[] = { "4", "*", "3", "/", "2" }; // TODO FIX: doesn't work in descending order { "40", "+", "20", "+", "10","+","7","+","3"}; op = nullptr
-    Base* op = test.parse(args, 5);                                     // change parse() to parse double digit numbers correctly                  
+    const char* args[] = { "4", "**", "3"}; // TODO FIX: doesn't work in descending order { "40", "+", "20", "+", "10","+","7","+","3"}; op = nullptr
+    Base* op = test.parse(args, 3);                                     // change parse() to parse double digit numbers correctly                  
 
-    for (int i = 0; i < 5; ++i) {
+    for (int i = 0; i < 3; ++i) {
         cout << args[i];
     }
     cout << " = " << op->evaluate() << endl;

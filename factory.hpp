@@ -46,7 +46,12 @@ public:
 				rop = root;
 			}
 			else if (input[i] == "*") {
+				//if (input[i+1] == "*")
 				root = new Mult(lop, new Op(std::stod(input[++i])));
+				rop = root;
+			}
+			else if (input[i] == "**") {
+				root = new Pow(lop, new Op(std::stod(input[++i])));
 				rop = root;
 			}
 			else {
