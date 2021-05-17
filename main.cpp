@@ -14,17 +14,17 @@
 
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
     // This is a very basic main, and being able to correctly execute this main
     // does not constitute a completed lab. Make sure you write unit tests for
     // all the classes that you create (and can be instantiated) in this lab
 
     Factory test;
-    const char* args[] = { "4", "**", "3", "-", "32", "+", "16", "/", "2", "*", "3"}; 
-    Base* op = test.parse(args, 11);                                                       
+   //const char* args[] = { "4", "**", "3", "-", "32", "+", "16", "/", "2", "*", "3" };
+    Base* op = test.parse(argv, argc);
 
-    for (int i = 0; i < 11; ++i) {
-        cout << args[i];
+    for (int i = 1; i < argc; ++i) {
+        cout << argv[i];
     }
     cout << " = " << op->evaluate() << endl;
 
