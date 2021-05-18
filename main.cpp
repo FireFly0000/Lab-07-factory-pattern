@@ -20,11 +20,15 @@ int main(int argc, char* argv[]) {
     // all the classes that you create (and can be instantiated) in this lab
 
     Factory test;
-   //const char* args[] = { "4", "**", "3", "-", "32", "+", "16", "/", "2", "*", "3" };
-    Base* op = test.parse(argv, argc);
+    const char* args[100];
+    for (int i = 0; i < argc - 1; ++i) {
+        args[i] = argv[i + 1];
+    }
 
-    for (int i = 1; i < argc; ++i) {
-        cout << argv[i];
+    Base* op = test.parse(args, argc-1);
+
+    for (int i = 0; i < argc-1; ++i) {
+        cout << args[i];
     }
     cout << " = " << op->evaluate() << endl;
 
