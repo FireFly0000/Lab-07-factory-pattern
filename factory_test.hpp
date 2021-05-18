@@ -45,7 +45,18 @@ TEST(FactoryTest, AllOperators) {
         EXPECT_DOUBLE_EQ(op->evaluate(), 4);
 }
 
+TEST(FactoryTest, InvalidInput) {
+	Factory test;
+	const char *args[] = {"10", "x", "4"};
+        Base *op = test.parse(args, 3);
+        EXPECT_TRUE(op == nullptr);
+}
 #endif
+
+
+
+
+
 
 
 
