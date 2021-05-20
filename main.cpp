@@ -20,7 +20,7 @@ int main() {
     // all the classes that you create (and can be instantiated) in this lab
 
     Factory test;
-    const char* args[] = { "4", "**", "3", "-", "32", "+", "16", "/", "2", "*", "!"}; 
+    const char* args[] = { "-14.2", "**", "3", "-", "-32", "+", "16", "/", "2", "*", "-3"}; 
     Base* op = test.parse(args, 11);                                                       
 
     for (int i = 0; i < 11; ++i) {

@@ -15,35 +15,30 @@
 class Factory
 {
 private:
-
+	Base* root = nullptr;	
 public:
+	~Factory(){
+		delete root;
+	}
 	Base* parse(const char* input[], int length)
 	{
 		int i = 0;
-		Base* root = nullptr;
+		//Base* root = nullptr;
 		Base* lop = nullptr;
 		Base* rop = nullptr;
-		bool is_double = false;
-		bool neg = false;
-
+		bool is_double;
+				
 		while (i < length) {
-			//if (std::isdigit(std::stoi(input[i])) == 0) {
-			/*if (input[i][0] == '-'){
-				neg = true;
-			}
 			for(int j =0; j<strlen(input[i]); j++){
-				if(input[i][j] == '-' || isdigit(input[i][j])){
-					is_double = true;
-				}
+                        	if(isdigit(input[i][j]) || input[i][j] == '.'){
+                                	is_double = true;
+                                }
 				else is_double = false;
 			}
-			if(is_double && !neg){
+
+			if(is_double){
 				lop = new Op(std::stod(input[i++]));
 			}
-			else if(is_double && neg){
-				double temp = std::stod(input[i++]);
-				lop = new Op(-temp);
-			}*/
 			else {
 				lop = rop;
 			}
@@ -60,7 +55,6 @@ public:
 				rop = root;
 			}
 			else if (input[i] == "*") {
-				//if (input[i+1] == "*")
 				root = new Mult(lop, new Op(std::stod(input[++i])));
 				rop = root;
 			}

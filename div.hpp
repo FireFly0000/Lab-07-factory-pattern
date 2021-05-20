@@ -9,6 +9,10 @@ private:
     Base* _lop;
     Base* _rop;
 public:
+    ~Div(){
+      delete _lop;
+      delete _rop;
+    }
     Div(Base* lop, Base* rop)
     {
         _lop = lop;

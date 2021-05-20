@@ -9,6 +9,10 @@ private:
     Base*  _lop;
     Base*  _rop;
 public:
+    ~Sub(){
+	delete _lop;
+	delete _rop;
+    }
     Sub(Base* lop, Base* rop) {
         _lop = lop;
         _rop = rop;

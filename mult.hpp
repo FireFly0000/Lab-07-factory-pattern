@@ -9,6 +9,10 @@ private:
     Base* _lop;
     Base* _rop;
 public:
+    ~Mult(){
+	delete _lop;
+	delete _rop;
+	}
     Mult(Base* lop, Base* rop)
     {
         _lop = lop;
