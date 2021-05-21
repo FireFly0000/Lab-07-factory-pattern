@@ -16,7 +16,7 @@ class Factory
 private:
 
 public:
-	Base* parse(char* input[], int length)
+	Base* parse(const char* input[], int length)
 	{
 		int i = 0;
 		Base* root = nullptr;

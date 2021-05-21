@@ -56,14 +56,14 @@ TEST(FactoryTest, DoubleMultandDiv) {
     Factory test;
     char* args[] = { "7.8", "*", "-3.2", "/", "2.0" };
     Base* op = test.parse(args, 5);
-    EXPECT_DOUBLE_EQ(op->eavluate(), -12.48);
+    EXPECT_DOUBLE_EQ(op->evaluate(), -12.48);
 }
 
 TEST(FactoryTest, MultiplyingTwoNeg) {
     Factory test;
     char* args[] = { "-9.0", "*", "-2.0"};
     Base* op = test.parse(args, 3);
-    EXPECT_DOUBLE_EQ(op->eavluate(), 18);
+    EXPECT_DOUBLE_EQ(op->evaluate(), 18);
 }
 
 #endif
