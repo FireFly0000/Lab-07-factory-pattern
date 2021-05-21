@@ -16,13 +16,13 @@ class Factory
 {
 private:
 	Base* root = nullptr;
-	bool neg(char* input[], int i){
+	bool neg(const char* input[], int i){
     		if( input[i][0] == '-'){
         		return true;
     		}
     		else return false;
 	}
-	bool not_1_decimal(char* input[], int i){
+	bool not_1_decimal(const char* input[], int i){
     		int c = 0;
     		for(int j =0; j<strlen(input[i]); j++){
         		if(input[i][j] == '.'){
@@ -34,7 +34,7 @@ private:
     		}
     		else return false;
 	}
-	bool is_double(char* input[], int i){
+	bool is_double(const char* input[], int i){
                 bool res;
                 if(input[i] != "**" && input[i] != "+" &&  input[i] != "-" &&  input[i] != "*" &&  input[i] != "/"){
                         for(int j =0; j<strlen(input[i]); j++){
@@ -64,7 +64,7 @@ public:
 	~Factory(){
 		delete root;
 	}
-	Base* parse(char* input[], int length)
+	Base* parse(const char* input[], int length)
 	{
 		int i = 0;
 		//Base* root = nullptr;
