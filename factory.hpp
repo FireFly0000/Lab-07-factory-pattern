@@ -14,12 +14,15 @@
 class Factory
 {
 private:
-
+	Base* root;
 public:
+	~Factory() {
+		delete root;
+	}
 	Base* parse(const char* input[], int length)
 	{
 		int i = 0;
-		Base* root = nullptr;
+		root = nullptr;
 		Base* lop = nullptr;
 		Base* rop = nullptr;
 		//bool isop = false;
