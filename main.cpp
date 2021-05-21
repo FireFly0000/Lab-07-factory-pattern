@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
     // all the classes that you create (and can be instantiated) in this lab
 
     Factory test;
-    const char* args[100];
+    char* args[100];
     for (int i = 0; i < argc - 1; ++i) {
         args[i] = argv[i + 1];
     }

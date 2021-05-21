@@ -16,18 +16,32 @@ class Factory
 private:
 
 public:
-	Base* parse(const char* input[], int length)
+	Base* parse(char* input[], int length)
 	{
 		int i = 0;
 		Base* root = nullptr;
 		Base* lop = nullptr;
 		Base* rop = nullptr;
+		bool isop = false;
 
 
 		while (i < length) {
-			//if (std::isdigit(std::stoi(input[i])) == 0) {
-			if (*input[i] == '0' || *input[i] == '1' || *input[i] == '2' || *input[i] == '3' || *input[i] == '4' || *input[i] == '5' ||
-				*input[i] == '6' || *input[i] == '7' || *input[i] == '8' || *input[i] == '9') {
+			
+			/*if (*input[i] == '1' || *input[i] == '2' || *input[i] == '3' || *input[i] == '4' || *input[i] == '5'
+				|| *input[i] == '6' || *input[i] == '7' || *input[i] == '8' || *input[i] == '9' || *input[i] == '0')
+			{
+
+				lop = new Op(std::stod(input[i++]));
+			}*/
+			if (*input[i] == '-' && isop == false) {
+				//*input[i] = '-';
+				lop = new Op(std::stod(input[i++]));
+				
+				isop = true;
+			}
+			
+
+			else if (std::isdigit(std::stod(input[i])) == 0 ) {
 				lop = new Op(std::stod(input[i++]));
 			}
 			/*if (std::isdigit(std::stoi(input[i])) == 0) {
@@ -39,25 +53,30 @@ public:
 			if (*input[i] == '+') {
 				root = new Add(lop, new Op(std::stod(input[++i])));
 				rop = root;
+				isop = false;
 			}
 			else if (*input[i] == '-') {
 				root = new Sub(lop, new Op(std::stod(input[++i])));
 				rop = root;
+				isop = false;
 			}
 			else if (*input[i] == '/') {
 				root = new Div(lop, new Op(std::stod(input[++i])));
 				rop = root;
+				isop = false;
 			}
 			else if (*input[i] == '*') {
 				if (*input[i + 1] == '*') {
 					++i;
 					root = new Pow(lop, new Op(std::stod(input[++i])));
 					rop = root;
+					isop = false;
 					
 				}
 				else {
 					root = new Mult(lop, new Op(std::stod(input[++i])));
 					rop = root;
+					isop = false;
 				}
 			}
 		    /*else if (*input[i] == '**') {
