@@ -22,7 +22,7 @@ public:
 		Base* root = nullptr;
 		Base* lop = nullptr;
 		Base* rop = nullptr;
-		bool isop = false;
+		//bool isop = false;
 
 
 		while (i < length) {
@@ -33,11 +33,12 @@ public:
 
 				lop = new Op(std::stod(input[i++]));
 			}*/
-			if (*input[i] == '-' && isop == false) {
+			if ((*input[i] == '-') && (*input[i+1] == '+' || *input[i + 1] == '*' || *input[i + 1] == '/' ))
+			{
 				//*input[i] = '-';
 				lop = new Op(std::stod(input[i++]));
 				
-				isop = true;
+				//isop = true;
 			}
 			
 
@@ -55,30 +56,31 @@ public:
 			if (*input[i] == '+') {
 				root = new Add(lop, new Op(std::stod(input[++i])));
 				rop = root;
-				isop = false;
+
+				//isop = false;
 			}
 			else if (*input[i] == '-') {
 				root = new Sub(lop, new Op(std::stod(input[++i])));
 				rop = root;
-				isop = false;
+				//isop = false;
 			}
 			else if (*input[i] == '/') {
 				root = new Div(lop, new Op(std::stod(input[++i])));
 				rop = root;
-				isop = false;
+				//isop = false;
 			}
 			else if (*input[i] == '*') {
 				if (*input[i + 1] == '*') {
 					++i;
 					root = new Pow(lop, new Op(std::stod(input[++i])));
 					rop = root;
-					isop = false;
+					//isop = false;
 					
 				}
 				else {
 					root = new Mult(lop, new Op(std::stod(input[++i])));
 					rop = root;
-					isop = false;
+					//isop = false;
 				}
 			}
 		    /*else if (*input[i] == '**') {
