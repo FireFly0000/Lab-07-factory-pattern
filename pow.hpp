@@ -10,7 +10,10 @@ private:
     Base* _lop;
     Base* _rop;
 public:
-    
+    ~Pow() {
+        delete _lop;
+        delete _rop;
+    }
     Pow(Base* lop, Base* rop)
     {
         _lop = lop;
