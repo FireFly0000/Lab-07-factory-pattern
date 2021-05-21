@@ -36,7 +36,7 @@ public:
 
 				lop = new Op(std::stod(input[i++]));
 			}*/
-			if ((*input[i] == '-') && (*input[i+1] == '+' || *input[i + 1] == '*' || *input[i + 1] == '/' ))
+			if ((*input[i] == '-') && (*input[i+1] == '+' || *input[i + 1] == '*' || *input[i + 1] == '/' || *input[i + 1] == '-'))
 			{
 				//*input[i] = '-';
 				lop = new Op(std::stod(input[i++]));
