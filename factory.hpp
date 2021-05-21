@@ -41,7 +41,9 @@ public:
 			}
 			
 
-			else if (std::isdigit(std::stod(input[i])) == 0 ) {
+			else if (*input[i] == '1' || *input[i] == '2' || *input[i] == '3' || *input[i] == '4' || *input[i] == '5'
+				|| *input[i] == '6' || *input[i] == '7' || *input[i] == '8' || *input[i] == '9' || *input[i] == '0')
+			{
 				lop = new Op(std::stod(input[i++]));
 			}
 			/*if (std::isdigit(std::stoi(input[i])) == 0) {
