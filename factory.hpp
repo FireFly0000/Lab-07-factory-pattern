@@ -102,9 +102,6 @@ public:
 			if(is_double(input,i)){
 				lop = new Op(std::stod(input[i++]));
 			}
-			//else{
-        		//	lop = rop;
-			//}
 			if (is_plus(input, i)) {
         			i++;
 				if(is_double(input,i)){
