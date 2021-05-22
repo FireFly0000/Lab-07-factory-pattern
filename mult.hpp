@@ -13,6 +13,7 @@ public:
 	delete _lop;
 	delete _rop;
 	}
+
     Mult(Base* lop, Base* rop)
     {
         _lop = lop;
