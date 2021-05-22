@@ -98,6 +98,21 @@ public:
 		//Base* root = nullptr;
 		Base* lop = nullptr;
 		Base* rop = nullptr;
+		
+		while (i < length) // first check if invalid input exists before performing operations
+		{
+			if ((*input[i] != '-' && *input[i] != '+' && *input[i] != '*' && *input[i] != '/' && *input[i] != '0' && *input[i] != '1' &&
+				*input[i] != '2' && *input[i] != '3' && *input[i] != '4' && *input[i] != '5' && *input[i] != '6' && *input[i] != '7' && *input[i] != '8' &&
+				*input[i] != '9')) 
+			{
+				std::cout << "ERROR, " << input[i] << " IS NOT A VALID INPUT" << std::endl;
+				return nullptr;
+			}
+			++i;
+		}
+		i = 0;
+		
+		
 		while(i<length){
 			if(is_double(input,i)){
 				lop = new Op(std::stod(input[i++]));
