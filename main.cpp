@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
 	cout << args[i];
     }
     cout << endl;
-    Base* op = test.parse(args, argc -1);
+    Base* op = test.parse(args, argc - 1);
 
     cout << " = " << op->evaluate() << endl;
     
