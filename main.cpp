@@ -20,6 +20,29 @@ int main(int argc, char* argv[]) {
     // all the classes that you create (and can be instantiated) in this lab
 
     Factory test;
+
+    //const char* args[] = { "-14.2", "**", "3", "-", "-32", "+", "16", "/", "2", "*", "3"}; 
+    //const char* args[] = {"4", "-", "3"};
+    const char* args[argc-1];
+    for(int i = 0; i<argc-1; i++){
+	args[i] = argv[i+1];
+    }                                                 
+    
+    for(int i = 0; i< argc-1; i++){
+	cout << args[i];
+    }
+    cout << endl;
+    Base* op = test.parse(args, argc - 1);
+    
+    if (op == nullptr) {
+        cout << "Invalid Input Entered" << endl;
+    }
+    else {	
+    cout << " = " << op->evaluate() << endl;
+    }
+
+ 
+   /*Factory test;
     const char* args[100];
     for (int i = 0; i < argc - 1; ++i) {
         args[i] = argv[i + 1];
@@ -30,17 +53,8 @@ int main(int argc, char* argv[]) {
     for (int i = 0; i < argc-1; ++i) {
         cout << args[i];
     }
-    cout << " = " << op->evaluate() << endl;
+    cout << " = " << op->evaluate() << endl;*/
 
 
-    /*Base* three = new Op(3);
-    Base* seven = new Op(7.0);
-    Base* four = new Op(4);
-    Base* two = new Op(2);
-    Base* mult = new Mult(seven, four);
-    Base* add = new Add(three, mult);
-    Base* minus = new Sub(add, two);
-
-    std::cout << minus->stringify() << " = " << minus->evaluate() << std::endl;*/
     return 0;
 }

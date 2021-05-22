@@ -9,9 +9,10 @@ private:
     Base* _lop;
     Base* _rop;
 public:
-    ~Add() {
-        delete _lop;
-        delete _rop;
+  ~Add(){
+	delete _lop;
+	delete _rop;
+}
     }
     Add(Base* lop, Base* rop) {
         _lop = lop;
