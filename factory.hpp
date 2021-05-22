@@ -100,15 +100,7 @@ public:
 		Base* rop = nullptr;
 		while(i<length){
 			if(is_double(input,i)){
-
 				lop = new Op(std::stod(input[i++]));
-			}*/
-			if ((*input[i] == '-') && (*input[i+1] == '+' || *input[i + 1] == '*' || *input[i + 1] == '/' || *input[i + 1] == '-'))
-			{
-				//*input[i] = '-';
-				lop = new Op(std::stod(input[i++]));
-				
-				//isop = true;
 			}
 			//else{
         		//	lop = rop;

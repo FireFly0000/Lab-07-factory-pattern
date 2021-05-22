@@ -20,7 +20,6 @@ int main(int argc, char* argv[]) {
     // all the classes that you create (and can be instantiated) in this lab
 
     Factory test;
-
     //const char* args[] = { "-14.2", "**", "3", "-", "-32", "+", "16", "/", "2", "*", "3"}; 
     //const char* args[] = {"4", "-", "3"};
     const char* args[argc-1];
