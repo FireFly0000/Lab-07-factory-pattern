@@ -25,13 +25,18 @@ int main(int argc, char* argv[]) {
         args[i] = argv[i + 1];
     }
 
-    Base* op = test.parse(args, argc-1);
+    Base* op = test.parse(args, argc - 1);
 
-    for (int i = 0; i < argc-1; ++i) {
+    for (int i = 0; i < argc - 1; ++i) {
         cout << args[i];
     }
-    cout << " = " << op->evaluate() << endl;
-
+    
+    if (op == nullptr) {
+        cout << " = Invalid Input Entered" << endl;
+    }
+    else {
+        cout << " = " << op->evaluate() << endl;
+    }
 
     /*Base* three = new Op(3);
     Base* seven = new Op(7.0);
