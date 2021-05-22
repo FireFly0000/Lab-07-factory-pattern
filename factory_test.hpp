@@ -81,3 +81,4 @@ TEST(FactoryTest, AllOperatorsWithDoubleNeg) {
 
 
 #endif
+

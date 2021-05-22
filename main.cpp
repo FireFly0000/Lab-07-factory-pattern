@@ -32,9 +32,13 @@ int main(int argc, char* argv[]) {
     }
     cout << endl;
     Base* op = test.parse(args, argc - 1);
-
-    cout << " = " << op->evaluate() << endl;
     
+    if (op == nullptr) {
+        cout << "Invalid Input Entered" << endl;
+    }
+    else {	
+    cout << " = " << op->evaluate() << endl;
+    }
 
  
    /*Factory test;
