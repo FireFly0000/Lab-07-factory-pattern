@@ -19,17 +19,25 @@ int main(int argc, char* argv[]) {
     // does not constitute a completed lab. Make sure you write unit tests for
     // all the classes that you create (and can be instantiated) in this lab
 
-    //Factory test;
+    Factory test;
     //const char* args[] = { "-14.2", "**", "3", "-", "-32", "+", "16", "/", "2", "*", "3"}; 
-    //char* args[] = { "4", "+", "3"};
-    //Base* op = test.parse(args, 11);                                                       
+    //const char* args[] = {"4", "-", "3"};
+    const char* args[argc-1];
+    for(int i = 0; i<argc-1; i++){
+	args[i] = argv[i+1];
+    }                                                 
     
-    //cout << op->stringify();
-    //cout << " = " << op->evaluate() << endl;
+    for(int i = 0; i< argc-1; i++){
+	cout << args[i];
+    }
+    cout << endl;
+    Base* op = test.parse(args, argc -1);
+
+    cout << " = " << op->evaluate() << endl;
     
 
  
-    Factory test;
+   /*Factory test;
     const char* args[100];
     for (int i = 0; i < argc - 1; ++i) {
         args[i] = argv[i + 1];
@@ -40,7 +48,7 @@ int main(int argc, char* argv[]) {
     for (int i = 0; i < argc-1; ++i) {
         cout << args[i];
     }
-    cout << " = " << op->evaluate() << endl;
+    cout << " = " << op->evaluate() << endl;*/
 
 
     return 0;

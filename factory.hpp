@@ -56,7 +56,7 @@ private:
                 return false;
         }
 	std::string error(){
-		std::string res = "ERROR, INVALID INPUTS\n";
+		std::string res = "ERROR\n";
 		return res;
 	}
 			
@@ -64,83 +64,32 @@ public:
 	~Factory(){
 		delete root;
 	}
-	Base* parse(const char* input[], int length)
-	{
+	Base* parse(const char* input[], int length){
 		int i = 0;
 		//Base* root = nullptr;
 		Base* lop = nullptr;
 		Base* rop = nullptr;
-				
 		while (i < length) {
 			
-			if(is_double(input,i)){
-				lop = new Op(std::stod(input[i++]));
-			}
-			else {
-				lop = rop;
-			}
+			if (is_double(input,i)){
+				lop = new Op(std::stod(input[i]));
+				i++;
+			}	
 			if (input[i] == "+") {
-				i++;
-				if(is_double(input,i)){
+				 i++;
+				 if(is_double(input,i)){
 					root = new Add(lop, new Op(std::stod(input[i])));
-					rop = root;
-				}
-				else{
+				 }
+				 else{
 					std::cout << error();
 					return nullptr;
-				}
+				}	
+			
 			}
-			else if (input[i] == "-") {
-				i++;
-				if(is_double(input,i)){
-					root = new Sub(lop, new Op(std::stod(input[i])));
-					rop = root;
-				}
-				else{
-					std::cout << error();
-					return nullptr;
-				}
-			}
-			else if (input[i] == "/") {
-				i++;
-				if(is_double(input,i)){
-					root = new Div(lop, new Op(std::stod(input[i])));
-					rop = root;
-				}
-				else{
-                                        std::cout << error();
-                                        return nullptr;
-                                }
-
-			}
-			else if (input[i] == "*") {
-				i++;
-				if(is_double(input,i)){
-					root = new Mult(lop, new Op(std::stod(input[i])));
-					rop = root;
-				}
-				else{
-					std::cout << error();
-                                        return nullptr;
-                                }
-
-			}
-			else if (input[i] == "**") {
-				i++;
-				if(is_double(input,i)){
-					root = new Pow(lop, new Op(std::stod(input[i])));
-					rop = root;
-				}
-				else{
-					std::cout << error();
-                                        return nullptr;
-                                }
-
-			}
-			else {
-				std::cout << "ERROR, INVALID INPUTS" << std::endl;
-				return nullptr;
-			}
+			//else {
+				//std::cout << "ERROR, INVALID INPUTS" << std::endl;
+				//return nullptr;
+			//}
 			++i;
 		}
 		return root;
