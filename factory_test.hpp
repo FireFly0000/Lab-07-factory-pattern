@@ -33,21 +33,21 @@ TEST(FactoryTest, MultandDiv) {
 
 TEST(FactoryTest, Pow) {
         Factory test;
-        const char *args[] = {"3", "*","*", "3"};
-        Base *op = test.parse(args, 4);
+        const char *args[] = {"3", "**", "3"};
+        Base *op = test.parse(args, 3);
         EXPECT_DOUBLE_EQ(op->evaluate(), 27);
 }
 
 TEST(FactoryTest, AllOperators) {
         Factory test;
-        const char *args[] = {"10", "+", "5","*","2","/","15","*","*","3","-","4"};
-        Base *op = test.parse(args, 12);
+        const char *args[] = {"10", "+", "5","*","2","/","15","**","3","-","4"};
+        Base *op = test.parse(args, 11);
         EXPECT_DOUBLE_EQ(op->evaluate(), 4);
 }
 
 TEST(FactoryTest, InvalidInput) {
 	Factory test;
-	const char *args[] = {"10", "x", "4"};
+	const char *args[] = {"10", "!", "4"};
         Base *op = test.parse(args, 3);
         EXPECT_TRUE(op == nullptr);
 }
@@ -65,6 +65,14 @@ TEST(FactoryTest, MultiplyingTwoNeg) {
     Base* op = test.parse(args, 3);
     EXPECT_DOUBLE_EQ(op->evaluate(), 18);
 }
+
+TEST(FactoryTest, InvalidInputFact) {
+    Factory test;
+    const char* args[] = { "-9", "*", "-3!"};
+    Base* op = test.parse(args, 3);
+    EXPECT_TRUE(op == nullptr);
+}
+
 
 #endif
 
